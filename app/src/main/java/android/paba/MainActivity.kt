@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 arguments = Bundle().apply {
                     putString("DATA", amount.toString())
                 }
+
             }
             mFragmentManager.beginTransaction()
                 .replace(R.id.frameContainer, mfTiga, fTiga::class.java.simpleName)
