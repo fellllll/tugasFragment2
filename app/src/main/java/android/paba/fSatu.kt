@@ -33,11 +33,19 @@ class fSatu : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val _tvNum = view.findViewById<TextView>(R.id.num1)
 
-        if (arguments != null){
-            val num = arguments?.getString("NUM")
-            _tvNum.text = num
+        val tv_Num = view.findViewById<TextView>(R.id.num1)
+        var amount = tv_Num.text.toString().toIntOrNull() ?: 0
+
+        val receivedData = arguments?.getString("DATA")?.toIntOrNull()
+
+        if (receivedData != null) {
+            amount = receivedData
+            tv_Num.text = amount.toString()
+
+            (activity as? MainActivity)?.intent?.putExtra("DATA", amount.toString())
+        } else if (amount == 99) {
+            (activity as? MainActivity)?.intent?.putExtra("DATA", amount.toString())
         }
     }
 

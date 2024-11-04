@@ -41,12 +41,13 @@ class fTiga : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val _tvNum = view.findViewById<TextView>(R.id.num1)
+        val tvNum = view.findViewById<TextView>(R.id.num1)
 
-        if (arguments != null){
-            val num = arguments?.getString("NUM")
-            _tvNum.text = num
-        }
+        val amount = arguments?.getString("DATA")
+        tvNum.text = amount
+
+        (activity as? MainActivity)?.intent?.putExtra("DATA", amount.toString())
+
     }
 
     companion object {

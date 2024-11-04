@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        var score = 99
-
         val mFragmentManager = supportFragmentManager
         val mfSatu = fSatu()
 
@@ -31,53 +29,48 @@ class MainActivity : AppCompatActivity() {
 
         val _btn1 = findViewById<Button>(R.id.btn1)
         _btn1.setOnClickListener {
-            score = score - 1
-            val mBundle = Bundle()
-            mBundle.putString("NUM", score.toString())
+            val data = intent.getStringExtra("DATA") ?: "0"
+            val amount = data.toIntOrNull()?.minus(1)
 
-            val mfSatu = fSatu()
-            mfSatu.arguments = mBundle
-
-            val mFragmentManager = supportFragmentManager
-            mFragmentManager.beginTransaction().apply {
-                replace(R.id.tvFrame, mfSatu, fSatu::class.java.simpleName)
-                addToBackStack(null)
-                commit()
+            val mfSatu = fSatu().apply {
+                arguments = Bundle().apply {
+                    putString("DATA", amount.toString())
+                }
             }
+            mFragmentManager.beginTransaction()
+                .replace(R.id.tvFrame, mfSatu, fSatu::class.java.simpleName)
+                .commit()
         }
 
         val _btn2 = findViewById<Button>(R.id.btn2)
         _btn2.setOnClickListener {
-            score = score - 2
-            val mBundle = Bundle()
-            mBundle.putString("NUM", score.toString())
+            val data = intent.getStringExtra("DATA") ?: "0"
+            val amount = data.toIntOrNull()?.minus(2)
 
-            val mfDua = fDua()
-            mfDua.arguments = mBundle
-            val mFragmentManager = supportFragmentManager
-
-            mFragmentManager.beginTransaction().apply {
-                replace(R.id.tvFrame, mfDua, fDua::class.java.simpleName)
-                addToBackStack(null)
-                commit()
+            val mfDua = fDua().apply {
+                arguments = Bundle().apply {
+                    putString("DATA", amount.toString())
+                }
             }
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.tvFrame, mfDua, fDua::class.java.simpleName)
+                .addToBackStack(null)
+                .commit()
         }
 
         val _btn3 = findViewById<Button>(R.id.btn3)
         _btn3.setOnClickListener {
-            score = score - 3
-            val mBundle = Bundle()
-            mBundle.putString("NUM", score.toString())
+            val data = intent.getStringExtra("DATA") ?: "0"
+            val amount = data.toIntOrNull()?.minus(3)
 
-            val mfTiga = fTiga()
-            mfTiga.arguments = mBundle
-
-            val mFragmentManager = supportFragmentManager
-            mFragmentManager.beginTransaction().apply {
-                replace(R.id.tvFrame, mfTiga, fTiga::class.java.simpleName)
-                addToBackStack(null)
-                commit()
+            val mfTiga = fTiga().apply {
+                arguments = Bundle().apply {
+                    putString("DATA", amount.toString())
+                }
             }
+            mFragmentManager.beginTransaction()
+                .replace(R.id.tvFrame, mfTiga, fTiga::class.java.simpleName)
+                .commit()
         }
 
     }
