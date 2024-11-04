@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
+
         val _btn3 = findViewById<Button>(R.id.btn3)
         _btn3.setOnClickListener {
             val data = intent.getStringExtra("DATA") ?: "0"
