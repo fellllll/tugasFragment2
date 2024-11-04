@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         mFragmentManager.findFragmentByTag(fSatu::class.java.simpleName)
         mFragmentManager
             .beginTransaction()
-            .add(R.id.tvFrame, mfSatu, fSatu::class.java.simpleName)
+            .add(R.id.frameContainer, mfSatu, fSatu::class.java.simpleName)
             .commit()
 
         val _btn1 = findViewById<Button>(R.id.btn1)
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             mFragmentManager.beginTransaction()
-                .replace(R.id.tvFrame, mfSatu, fSatu::class.java.simpleName)
+                .replace(R.id.frameContainer, mfSatu, fSatu::class.java.simpleName)
                 .commit()
         }
 
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             supportFragmentManager.beginTransaction()
-                .replace(R.id.tvFrame, mfDua, fDua::class.java.simpleName)
+                .replace(R.id.frameContainer, mfDua, fDua::class.java.simpleName)
                 .addToBackStack(null)
                 .commit()
         }
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             mFragmentManager.beginTransaction()
-                .replace(R.id.tvFrame, mfTiga, fTiga::class.java.simpleName)
+                .replace(R.id.frameContainer, mfTiga, fTiga::class.java.simpleName)
                 .commit()
         }
 
